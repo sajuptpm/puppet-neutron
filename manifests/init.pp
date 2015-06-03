@@ -439,4 +439,11 @@ class neutron (
       'DEFAULT/use_syslog':           value => false;
     }
   }
+
+  file { '/etc/neutron/policy.json':
+    ensure  => file,
+    owner   => 'root',
+    mode    => '0644',
+    source  => "puppet:///modules/neutron/policy.json",
+  }
 }
